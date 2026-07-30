@@ -2,6 +2,58 @@
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------------- DATA ---------------- */
+  // Certificates Data
+  var certificates = {
+    'backend-fundamental': {
+      title: 'Belajar Fundamental Backend',
+      issuer: 'Dicoding Indonesia',
+      date: '2024',
+      description: 'Sertifikat kompetensi untuk pembelajaran fundamental backend development termasuk REST API, database, dan best practices.',
+      credentialUrl: '#',
+      imageUrl: '#'
+    },
+    'spring-boot': {
+      title: 'Java Spring Boot Developer',
+      issuer: 'Kursus Daring Bersertifikat',
+      date: '2024',
+      description: 'Sertifikat penyelesaian kursus comprehensive Java Spring Boot development mencakup microservices dan enterprise patterns.',
+      credentialUrl: '#',
+      imageUrl: '#'
+    },
+    'gcp-fundamentals': {
+      title: 'Google Cloud Fundamentals',
+      issuer: 'Google Cloud / Coursera',
+      date: '2023',
+      description: 'Sertifikat dari Google Cloud untuk fundamental cloud computing concepts dan Google Cloud Platform basics.',
+      credentialUrl: '#',
+      imageUrl: '#'
+    },
+    'internship-cert': {
+      title: 'Sertifikat Penyelesaian Magang',
+      issuer: 'Telkom Indonesia',
+      date: '2024',
+      description: 'Sertifikat penyelesaian program magang 3 bulan di Telkom Indonesia sebagai Backend Developer.',
+      credentialUrl: '#',
+      imageUrl: '#'
+    },
+    'react-web': {
+      title: 'Belajar Membuat Aplikasi Web dengan React',
+      issuer: 'Dicoding Indonesia',
+      date: '2023',
+      description: 'Sertifikat kompetensi untuk frontend development dengan React, mencakup hooks, state management, dan modern patterns.',
+      credentialUrl: '#',
+      imageUrl: '#'
+    },
+    'hackathon-capstone': {
+      title: 'Juara Harapan Hackathon Capstone',
+      issuer: 'Kompetisi Internal Kampus',
+      date: '2023',
+      description: 'Penghargaan sebagai Juara Harapan dalam hackathon capstone dengan tim lintas jurusan.',
+      credentialUrl: '#',
+      imageUrl: '#'
+    }
+  };
+
   // TODO: Ganti seluruh data di bawah ini dengan data asli (deskripsi, link GitHub, demo, gambar).
   var projects = [
     {
@@ -272,6 +324,79 @@
   backTop.addEventListener('click', function(){
     window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
   });
+
+  /* ---------------- EXPERIENCE TABS ---------------- */
+  var expTabBtns = document.querySelectorAll('.exp-tab-btn');
+  var expLists = document.querySelectorAll('.exp-list');
+  
+  expTabBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var category = this.getAttribute('data-category');
+      
+      // Update active button
+      expTabBtns.forEach(function(b){ b.classList.remove('active'); });
+      this.classList.add('active');
+      
+      // Show/hide lists
+      expLists.forEach(function(list){
+        if(list.getAttribute('data-category') === category){
+          list.style.display = 'block';
+        } else {
+          list.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  /* ---------- CERTIFICATES MODAL ---------- */
+  var certOverlay = document.getElementById('certModalOverlay');
+  var certModalTitle = document.getElementById('certModalTitle');
+  var certModalMeta = document.getElementById('certModalMeta');
+  var certModalBody = document.getElementById('certModalBody');
+  var certLastFocused = null;
+
+  function openCertModal(certId){
+    var cert = certificates[certId];
+    if(!cert) return;
+    
+    certLastFocused = document.activeElement;
+    certModalTitle.textContent = cert.title;
+    certModalMeta.innerHTML = '<span>' + cert.issuer + '</span><span style="margin-left:12px;">' + cert.date + '</span>';
+    certModalBody.innerHTML =
+      '<h4>Deskripsi</h4><p>' + cert.description + '</p>' +
+      '<div class="modal-links" style="margin-top:24px;">' +
+        '<a class="btn btn-outline btn-sm" href="' + cert.credentialUrl + '" target="_blank" rel="noopener">Lihat Credential</a>' +
+      '</div>';
+    
+    certOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('certModalClose').focus();
+  }
+
+  function closeCertModal(){
+    certOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if(certLastFocused) certLastFocused.focus();
+  }
+
+  // Cert card click handlers
+  var certCards = document.querySelectorAll('.cert-card[data-cert-id]');
+  certCards.forEach(function(card){
+    card.addEventListener('click', function(){
+      var certId = this.getAttribute('data-cert-id');
+      openCertModal(certId);
+    });
+    card.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        var certId = this.getAttribute('data-cert-id');
+        openCertModal(certId);
+      }
+    });
+  });
+
+  document.getElementById('certModalClose').addEventListener('click', closeCertModal);
+  certOverlay.addEventListener('click', function(e){ if(e.target === certOverlay) closeCertModal(); });
 
   /* ---------------- CONTACT FORM ---------------- */
   var form = document.getElementById('contactForm');
