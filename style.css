@@ -182,10 +182,33 @@
   .value-chip{font-family:var(--font-mono);font-size:0.8125rem;color:var(--text);background:var(--surface);
     border:1px solid var(--border);padding:8px 14px;border-radius:999px;}
 
-  .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px;}
-  .stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:18px;}
-  .stat-card b{display:block;font-family:var(--font-display);font-size:1.75rem;color:var(--amber);}
-  .stat-card span{font-size:0.8125rem;color:var(--text-muted);}
+  .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px;}
+  .stat-card{
+    position:relative;
+    background:linear-gradient(145deg, rgba(24,34,56,0.6), rgba(13,18,32,0.4));
+    border:1px solid var(--border);
+    border-radius:var(--radius-md);
+    padding:24px;
+    overflow:hidden;
+    transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+  .stat-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(245,166,35,0.4);
+    box-shadow:0 12px 30px -10px rgba(245,166,35,0.15);
+  }
+  .stat-card::before{
+    content:"";position:absolute;top:0;right:0;width:150px;height:150px;
+    background:radial-gradient(circle at top right, rgba(245,166,35,0.15), transparent 70%);
+    opacity:0;transition:opacity .3s ease;pointer-events:none;
+  }
+  .stat-card:hover::before{opacity:1;}
+  .sc-icon{width:32px;height:32px;color:var(--amber);margin-bottom:12px;opacity:0.9;transition:transform .3s ease;}
+  .stat-card:hover .sc-icon{transform:scale(1.1) rotate(-5deg);}
+  .stat-card b{display:block;position:relative;z-index:1;font-family:var(--font-display);font-size:1.6rem;color:var(--amber);margin-bottom:4px;letter-spacing:-0.02em;}
+  .stat-card span{display:block;position:relative;z-index:1;font-size:0.875rem;color:var(--text-body);line-height:1.4;}
 
   .timeline{position:relative;padding-left:28px;margin-top:8px;}
   .timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:1px;background:var(--border-strong);}
