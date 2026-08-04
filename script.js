@@ -299,7 +299,7 @@
       'Email: ' + email.value.trim() + '\n\n' +
       message.value.trim()
     );
-    var mailto = 'mailto:rafi.tribuwana@email.com?subject=' + encodeURIComponent(subject.value.trim()) + '&body=' + body;
+    var mailto = 'mailto:rafi.tribuwana@gmail.com?subject=' + encodeURIComponent(subject.value.trim()) + '&body=' + body;
     status.classList.add('show');
     window.location.href = mailto;
   });
