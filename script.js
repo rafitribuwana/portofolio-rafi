@@ -120,6 +120,36 @@
   }, { threshold: 0.3 });
   skillRows.forEach(function(el){ skillObserver.observe(el); });
 
+  /* ---------------- HERO STATS COUNT-UP ---------------- */
+  var statEls = document.querySelectorAll('.hero-stats .stat b');
+  var statsDone = false;
+  function countUp(el, target, suffix) {
+    var start = 0;
+    var duration = 1200;
+    var step = 16;
+    var increment = target / (duration / step);
+    var timer = setInterval(function() {
+      start += increment;
+      if (start >= target) { start = target; clearInterval(timer); }
+      el.textContent = Math.floor(start) + suffix;
+    }, step);
+  }
+  var statsObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !statsDone) {
+        statsDone = true;
+        statEls.forEach(function(el) {
+          var raw = el.textContent.trim();
+          var suffix = raw.replace(/[0-9]/g, '');
+          var target = parseInt(raw, 10);
+          if (!isNaN(target)) countUp(el, target, suffix);
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+  var heroStatsEl = document.querySelector('.hero-stats');
+  if (heroStatsEl) statsObserver.observe(heroStatsEl);
+
   /* ---------------- HERO TYPING EFFECT ---------------- */
   var editorBody = document.getElementById('editorBody');
 
