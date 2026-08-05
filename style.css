@@ -117,7 +117,7 @@
 
   /* Mobile menu */
   .mobile-menu{
-    position:fixed;inset:0;z-index:30;background:rgba(9,13,23,0.98);
+    position:fixed;inset:0;z-index:30;background:var(--bg);
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
     opacity:0;pointer-events:none;transition:opacity .25s ease;
   }
@@ -269,7 +269,7 @@
   .modal-overlay.open .modal{transform:translateY(0);}
   .modal-head{
     padding:26px 30px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
-    position:sticky;top:0;background:var(--bg-soft);border-radius:var(--radius-lg) var(--radius-lg) 0 0;
+    background:var(--bg-soft);border-radius:var(--radius-lg) var(--radius-lg) 0 0;
   }
   .modal-head h3{font-size:1.375rem;margin-bottom:6px;}
   .modal-close{flex:none;width:38px;height:38px;border-radius:10px;background:var(--surface);border:1px solid var(--border);color:var(--text-muted);display:flex;align-items:center;justify-content:center;cursor:pointer;}
