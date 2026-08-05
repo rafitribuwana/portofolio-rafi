@@ -117,7 +117,7 @@
 
   /* Mobile menu */
   .mobile-menu{
-    position:fixed;inset:0;z-index:30;background:var(--bg);
+    position:fixed;inset:0;z-index:30;background:#090d17;
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
     opacity:0;pointer-events:none;transition:opacity .25s ease;
   }
