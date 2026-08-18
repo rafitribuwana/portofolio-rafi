@@ -11,8 +11,12 @@
     card.setAttribute('role','button');
     card.setAttribute('aria-label','Lihat detail proyek ' + p.title);
     var badgeClass = p.status === 'done' ? 'badge-done' : (p.status === 'progress' ? 'badge-progress' : 'badge-academic');
+    var thumbHtml = (p.image && p.image !== '#')
+      ? '<div class="project-thumb project-thumb-img"><img src="' + p.image + '" alt="' + p.title + '" loading="lazy" /></div>'
+      : '<div class="project-thumb" style="--pc1:' + p.colors[0] + ';--pc2:' + p.colors[1] + ';">' + p.initial + '</div>';
+
     card.innerHTML =
-      '<div class="project-thumb" style="--pc1:' + p.colors[0] + ';--pc2:' + p.colors[1] + ';">' + p.initial + '</div>' +
+      thumbHtml +
       '<div class="project-body">' +
         '<div class="p-top"><h3>' + p.title + '</h3><span class="badge ' + badgeClass + '">' + (p.status==='done'?'Selesai':'Progress') + '</span></div>' +
         '<p class="desc">' + p.short + '</p>' +
@@ -40,7 +44,11 @@
     modalStatus.className = 'badge ' + (p.status === 'done' ? 'badge-done' : 'badge-progress');
     modalMeta.innerHTML =
       '<span>Peran: ' + p.role + '</span><span>Durasi: ' + p.duration + '</span><span>Tahun: ' + p.date + '</span>';
+    var imageHtml = (p.image && p.image !== '#')
+      ? '<div class="modal-preview-img"><img src="' + p.image + '" alt="' + p.title + '" /></div>'
+      : '';
     modalBody.innerHTML =
+      imageHtml +
       '<h4>Ringkasan</h4><p>' + p.overview + '</p>' +
       '<h4>Masalah</h4><p>' + p.problem + '</p>' +
       '<h4>Pendekatan Solusi</h4><p>' + p.solution + '</p>' +

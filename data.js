@@ -27,16 +27,16 @@ const certificates = {
   },
    'internship-cert': {
     title: 'Sertifikat Penyelesaian Magang',
-    issuer: 'Telkom Indonesia',
+    issuer: 'Telkom Access Pekalongan',
     date: '2026',
-    description: 'Sertifikat penyelesaian program magang 1 bulan di Telkom Indonesia sebagai Backend Developer.',
+    description: 'Sertifikat penyelesaian program magang 1 bulan di Telkom Access Pekalongan sebagai Backend Developer.',
     credentialUrl: '#',
     imageUrl: '#'
   }
 };
 
 const projects = [
-    {
+  {
     id: 'smartwater',
     title: 'SmartWater IoT System',
     tagline: 'Monitoring kualitas air pabrik berbasis IoT',
@@ -45,6 +45,7 @@ const projects = [
     role: 'Backend Engineer', duration: '2 bulan', date: '2026',
     tags: ['Golang', 'MQTT', 'Python', 'PostgreSQL'],
     colors: ['#0f5c4a', '#0d1220'], initial: 'S',
+    image: '', // Contoh: 'assets/smartwater.jpg'
     overview: 'Proyek tim untuk membantu pabrik memantau parameter kualitas air secara berkelanjutan menggunakan sensor IoT dan protokol komunikasi ringan.',
     problem: 'Pabrik memerlukan cara untuk mendeteksi anomali kualitas air secara cepat, karena pengecekan manual berkala tidak cukup responsif.',
     solution: 'Sensor mengirim data lewat protokol MQTT ke backend Golang untuk ingestion data, lalu dianalisis dengan Python untuk mendeteksi anomali dan memicu alert otomatis.',
@@ -61,6 +62,7 @@ const projects = [
     role: 'Backend Developer', duration: '1 bulan', date: '2026',
     tags: ['Node.Js', 'Express.Js', 'React', 'MySQL'],
     colors: ['#1c3d78', '#0d1220'], initial: 'K',
+    image: 'assets/TelkomKPI.png',
     overview: 'Dashboard internal untuk tim operasional Telkom regional, dibangun agar data performa bisa dipantau real-time tanpa perlu menyusun laporan manual setiap minggunya.',
     problem: 'Tim regional memantau 5+ metrik KPI lewat spreadsheet yang diperbarui manual, proses ini memakan waktu ±2 jam per laporan dan rawan salah input.',
     solution: 'Membangun REST API dengan Node.Js untuk agregasi data, disajikan lewat dashboard React dengan visualisasi grafik dan fitur ekspor/impor Excel.',
@@ -77,6 +79,7 @@ const projects = [
     role: 'Full Stack Developer', duration: '1.5 Month', date: '2026',
     tags: ['React', 'Java', 'Spring Boot', 'MySQL', 'Payment API',],
     colors: ['#7a4a13', '#0d1220'], initial: 'H',
+    image: '', // Contoh: 'assets/hotel-ambarukmo.jpg'
     overview: 'Sistem reservasi hotel yang mencakup alur booking untuk tamu dan dashboard pengelolaan properti untuk admin.',
     problem: 'Proses reservasi manual rentan menyebabkan overbooking dan sulit melacak data tamu secara terpusat.',
     solution: 'Membangun backend Spring Boot dengan validasi ketersediaan kamar real-time, terintegrasi payment gateway, dan dashboard admin untuk kelola properti.',
@@ -93,6 +96,7 @@ const projects = [
     role: 'Full Stack + ML', duration: '3 Month', date: '2026',
     tags: ['Python', 'FastAPI', 'TensorFlow', 'React'],
     colors: ['#7a1f4d', '#0d1220'], initial: 'A',
+    image: '', // Contoh: 'assets/skin-sense.jpg'
     overview: 'Proyek pribadi untuk mengasah kemampuan machine learning terapan sekaligus memahami alur end-to-end dari model hingga antarmuka pengguna.',
     problem: 'Ingin membuktikan kemampuan membangun produk berbasis AI secara utuh, bukan hanya melatih model di notebook.',
     solution: 'Model TensorFlow untuk klasifikasi kondisi kulit, dikonsumsi oleh frontend React yang mendukung pengambilan foto langsung dari kamera.',
@@ -109,6 +113,7 @@ const projects = [
     role: 'Full Stack Developer', duration: '2 Month', date: '2026',
     tags: ['PHP', 'Laravel', 'MySQL', 'Bootstrap 5', 'PHPUnit'],
     colors: ['#4b2075', '#0d1220'], initial: 'K',
+    image: '', // Contoh: 'assets/kolutupa.jpg'
     overview: 'Kolutupa adalah platform marketplace Customer-to-Customer (C2C) yang berfokus pada transaksi barang bekas atau secondhand. Platform ini dirancang untuk memudahkan pengguna dalam menjual dan membeli barang bekas dengan antarmuka yang ramah pengguna.',
     problem: 'Diperlukan platform terpusat untuk mewadahi transaksi barang secondhand antar mahasiswa/pengguna secara aman, serta memastikan kualitas kode melalui pengujian yang ketat.',
     solution: 'Membangun aplikasi web menggunakan PHP Laravel dan MySQL, menerapkan antarmuka responsif dengan Bootstrap 5, serta melakukan pengujian menyeluruh melalui Unit Testing, Feature Testing, dan User Acceptance Testing (UAT).',
