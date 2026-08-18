@@ -82,7 +82,7 @@ const projects = [
     solution: 'Membangun backend Spring Boot dengan validasi ketersediaan kamar real-time, terintegrasi payment gateway, dan dashboard admin untuk kelola properti.',
     results: ['Mengurangi kasus overbooking secara signifikan', 'Data tamu dan histori booking lebih terstruktur', 'Proses reservasi lebih cepat bagi pengguna'],
     learnings: ['Menangani concurrency saat banyak booking terjadi bersamaan', 'Integrasi payment gateway pihak ketiga'],
-    github: '#https://github.com/rafitribuwana/Hotel-Ambarukmo', demo: '#'
+    github: 'https://github.com/rafitribuwana/Hotel-Ambarukmo', demo: '#'
   },
   {
     id: 'skin-analyzer',
@@ -98,7 +98,7 @@ const projects = [
     solution: 'Model TensorFlow untuk klasifikasi kondisi kulit, dikonsumsi oleh frontend React yang mendukung pengambilan foto langsung dari kamera.',
     results: ['Prototipe end-to-end berjalan dari kamera hingga hasil analisis', 'Proses inferensi dioptimalkan agar tetap responsif di web'],
     learnings: ['Deployment model ML ke layanan web nyata', 'Trade-off antara akurasi model dan kecepatan respons'],
-    github: '#https://github.com/Septian-AS/SkinSense', demo: '#'
+    github: 'https://github.com/Septian-AS/SkinSense', demo: '#'
   },
   {
     id: 'kolutupa',
@@ -114,7 +114,7 @@ const projects = [
     solution: 'Membangun aplikasi web menggunakan PHP Laravel dan MySQL, menerapkan antarmuka responsif dengan Bootstrap 5, serta melakukan pengujian menyeluruh melalui Unit Testing, Feature Testing, dan User Acceptance Testing (UAT).',
     results: ['Sistem marketplace berhasil diuji secara komprehensif tanpa bug kritis pada saat UAT', 'Antarmuka responsif dan mulus diakses di berbagai perangkat'],
     learnings: ['Penerapan pengujian berlapis (Unit, Feature, UAT) pada pengembangan Laravel', 'Desain UI/UX yang responsif menggunakan framework Bootstrap'],
-    github: '#', demo: '#'
+    github: 'https://github.com/kudabaggy/KOLUTUPA-PROJ', demo: '#'
   }
 ];
 
