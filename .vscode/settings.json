@@ -1,3 +1,4 @@
 {
-    "livePreview.defaultPreviewPath": "/portfolio-rafi.html"
+  "livePreview.defaultPreviewPath": "/portfolio-rafi.html",
+  "liveServer.settings.port": 5501
 }
