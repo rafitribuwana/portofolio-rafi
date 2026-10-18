@@ -96,7 +96,7 @@ const projects = [
     role: 'Full Stack + ML', duration: '3 Month', date: '2026',
     tags: ['JavaScript', 'TensorFlow', 'Html/CSS'],
     colors: ['#7a1f4d', '#0d1220'], initial: 'A',
-    image: 'assets/projek/skinsense.png', 
+    image: 'assets/projek/SkinSense.png', 
     overview: 'Proyek pribadi untuk mengasah kemampuan machine learning terapan sekaligus memahami alur end-to-end dari model hingga antarmuka pengguna.',
     problem: 'Ingin membuktikan kemampuan membangun produk berbasis AI secara utuh, bukan hanya melatih model di notebook.',
     solution: 'Model TensorFlow untuk klasifikasi kondisi kulit, dikonsumsi oleh frontend React yang mendukung pengambilan foto langsung dari kamera.',
